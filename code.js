@@ -6,9 +6,11 @@ const isSearched = searchTerm => item =>
 
 const onSearch = () => {
     const searchTerm = document.querySelector("#searchBar").value
+    const buttonLoading = document.querySelector(".button")
     fetch(url)
         .then(response => response.json())
         .then(response => {
+            buttonLoading.classList.add("is-loading")
             const list = response.filter(isSearched(searchTerm)).map(data => {
                 results.style.visibility = 'visible'
                 return `
@@ -21,5 +23,6 @@ const onSearch = () => {
             }).join('')
             results.innerHTML = list
         });
+    buttonLoading.classList.remove("is-loading")
 }
 
