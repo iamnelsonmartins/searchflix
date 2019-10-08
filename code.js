@@ -25,13 +25,15 @@ const onSearch = () => {
                     </div>
                 `
             }).join('')
+            buttonLoading.classList.remove("is-loading")
+            input.removeAttribute("readonly", "")
             results.innerHTML = list;
         });
 }
 
 
 /* begin begin Back to Top button  */
-/* const goTopBtn = document.querySelector('.backToTop');
+const goTopBtn = document.querySelector('.backToTop');
 
 const trackScroll = () => {
     let scrolled = window.pageYOffset;
@@ -47,10 +49,10 @@ const trackScroll = () => {
 
 const backToTop = () => {
     if (window.pageYOffset > 0) {
-        window.scrollBy(0, -80);
+        window.scrollBy(0, -window.innerHeight);
         setTimeout(backToTop, 0);
     }
 }
 
 window.addEventListener('scroll', trackScroll);
-goTopBtn.addEventListener('click', backToTop); */
+goTopBtn.addEventListener('click', backToTop);
