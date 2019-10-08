@@ -6,10 +6,14 @@ const isSearched = searchTerm => item =>
 
 const onSearch = () => {
     const searchTerm = document.querySelector("#searchBar").value
-    const buttonLoading = document.querySelector(".button")
+    const buttonLoading = document.querySelector(".search")
+    const input = document.querySelector("#searchBar")
+
     fetch(url)
         .then(response => response.json(),
-            buttonLoading.classList.add("is-loading"))
+            buttonLoading.classList.add("is-loading"),
+            input.setAttribute("readonly", "")
+        )
         .then(response => {
             const list = response.filter(isSearched(searchTerm)).map(data => {
                 results.style.visibility = 'visible'
@@ -21,14 +25,13 @@ const onSearch = () => {
                     </div>
                 `
             }).join('')
-            buttonLoading.classList.remove("is-loading")
             results.innerHTML = list;
         });
 }
 
 
 /* begin begin Back to Top button  */
-const goTopBtn = document.querySelector('.backToTop');
+/* const goTopBtn = document.querySelector('.backToTop');
 
 const trackScroll = () => {
     let scrolled = window.pageYOffset;
@@ -50,4 +53,4 @@ const backToTop = () => {
 }
 
 window.addEventListener('scroll', trackScroll);
-goTopBtn.addEventListener('click', backToTop);
+goTopBtn.addEventListener('click', backToTop); */
