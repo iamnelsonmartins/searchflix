@@ -12,8 +12,7 @@ const onSearch = () => {
     fetch(url)
         .then(response => response.json(),
             buttonLoading.classList.add("is-loading"),
-            input.setAttribute("readonly", "")
-        )
+            input.setAttribute("readonly", ""))
         .then(response => {
             const list = response.filter(isSearched(searchTerm)).map(data => {
                 results.style.visibility = 'visible'
