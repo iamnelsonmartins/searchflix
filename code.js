@@ -1,5 +1,5 @@
 const results = document.querySelector("#results")
-const url = 'https://gist.githubusercontent.com/nelmarti/39f1ba049c8c9c1447db59d39415f9c6/raw/0262f2356ff7326037c82fd5f0cf0ea413c2575a/searchflix.json'
+const url = 'https://gist.githubusercontent.com/iamnelsonmartins/39f1ba049c8c9c1447db59d39415f9c6/raw/0262f2356ff7326037c82fd5f0cf0ea413c2575a/searchflix.json'
 
 const isSearched = searchTerm => item =>
     item.title.toLowerCase().includes(searchTerm.toLowerCase());
